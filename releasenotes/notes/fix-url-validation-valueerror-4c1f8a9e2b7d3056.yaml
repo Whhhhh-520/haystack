@@ -1,0 +1,7 @@
+---
+fixes:
+  - |
+    `is_valid_http_url` no longer raises `ValueError` on inputs that `urlparse`
+    refuses to parse, such as a malformed IPv6 literal (`"http://[::1"`).
+    The function now returns `False` for those inputs, so it can be used as a
+    total predicate.
